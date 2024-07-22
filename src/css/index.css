@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  /* outline: 1px solid lime !important; */
+}
+
+:root {
+  /* Moody shade */
+  --moody-primary-bg: #171a24;
+  --moody-secondary-bg: #1d2029;
+  --moody-footer-bg: #0c0d12;
+  --moody-primary-color: #596f99;
+  --moody-secondary-color: #171a24;
+  --moody-text-primary: #f4f5f5;
+  --moody-text-secondary: #f4f5f5;
+
+  /* Sith awakens */
+  --sith-primary-bg: #242424;
+  --sith-secondary-bg: #000000;
+  --sith-footer-bg: #2d2b3c;
+  --sith-primary-color: #d40000;
+  --sith-secondary-color: #242424;
+  --sith-text-primary: #dfdfdf;
+  --sith-text-secondary: #dfdfdf;
+
+  /* Militant */
+  --militant-primary-bg: #54654c;
+  --militant-secondary-bg: #1f291d;
+  --militant-footer-bg: #0c120c;
+  --militant-primary-color: #669959;
+  --militant-secondary-color: #54654c;
+  --militant-text-primary: #f4f5f5;
+  --militant-text-secondary: #f4f5f5;
+
+  /* Made in Heaven */
+  --heaven-primary-bg: #fbfbfb;
+  --heaven-secondary-bg: #e5f7ff;
+  --heaven-footer-bg: #fffcdd;
+  --heaven-primary-color: #fbdeb1;
+  --heaven-secondary-color: #fbfbfb;
+  --heaven-text-primary: #181818;
+  --heaven-text-secondary: #181818;
+
+  /* Barbie world */
+  --heaven-primary-bg: #fdf2f9;
+  --heaven-secondary-bg: #f4c2c2;
+  --heaven-footer-bg: #a1135b;
+  --heaven-primary-color: #e0218a;
+  --heaven-secondary-color: #fdf2f9;
+  --heaven-text-primary: #181818;
+  --heaven-text-secondary: #f4f5f5;
+
+  /* Used palette */
+  --primary-bg: var(--moody-primary-bg);
+  --secondary-bg: var(--moody-secondary-bg);
+  --footer-bg: var(--moody-footer-bg);
+  --primary-color: var(--moody-primary-color);
+  --secondary-color: var(--moody-secondary-color);
+  --primary-text: var(--moody-text-primary);
+  --secondary-text: var(--moody-text-secondary);
+}
+
+.moody {
+  --primary-bg: var(--moody-primary-bg);
+  --secondary-bg: var(--moody-secondary-bg);
+  --footer-bg: var(--moody-footer-bg);
+  --primary-color: var(--moody-primary-color);
+  --secondary-color: var(--moody-secondary-color);
+  --primary-text: var(--moody-text-primary);
+  --secondary-text: var(--moody-text-secondary);
+}
+
+.sith {
+  --primary-bg: var(--sith-primary-bg);
+  --secondary-bg: var(--sith-secondary-bg);
+  --footer-bg: var(--sith-footer-bg);
+  --primary-color: var(--sith-primary-color);
+  --secondary-color: var(--sith-secondary-color);
+  --primary-text: var(--sith-text-primary);
+  --secondary-text: var(--sith-text-secondary);
+}
+
+.militant {
+  --primary-bg: var(--militant-primary-bg);
+  --secondary-bg: var(--militant-secondary-bg);
+  --footer-bg: var(--militant-footer-bg);
+  --primary-color: var(--militant-primary-color);
+  --secondary-color: var(--militant-secondary-color);
+  --primary-text: var(--militant-text-primary);
+  --secondary-text: var(--militant-text-secondary);
+}
+
+.heaven {
+  --primary-bg: var(--heaven-primary-bg);
+  --secondary-bg: var(--heaven-secondary-bg);
+  --footer-bg: var(--heaven-footer-bg);
+  --primary-color: var(--heaven-primary-color);
+  --secondary-color: var(--heaven-secondary-color);
+  --primary-text: var(--heaven-text-primary);
+  --secondary-text: var(--heaven-text-secondary);
+}
+
+.barbie {
+  --primary-bg: var(--barbie-primary-bg);
+  --secondary-bg: var(--barbie-secondary-bg);
+  --footer-bg: var(--barbie-footer-bg);
+  --primary-color: var(--barbie-primary-color);
+  --secondary-color: var(--barbie-secondary-color);
+  --primary-text: var(--barbie-text-primary);
+  --secondary-text: var(--barbie-text-secondary);
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--primary-bg);
+}
