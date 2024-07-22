@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Input } from "./components";
+import { Search } from "./components";
 
 const App: React.FC = () => {
   return (
     <div className={`app `}>
-      <Input type="password" label="test" id="number" placeholder="Hello" />
+      <Search placeholder="Search for" />
     </div>
   );
 };

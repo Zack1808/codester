@@ -1,3 +1,3 @@
-import { ButtonProps, InputProps } from "./components";
+import { ButtonProps, InputProps, SearchProps } from "./components";
 
-export type { ButtonProps, InputProps };
+export type { ButtonProps, InputProps, SearchProps };

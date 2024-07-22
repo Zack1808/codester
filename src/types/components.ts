@@ -11,3 +11,7 @@ export type ButtonProps = {
 export type InputProps = {
   label?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
+
+export type SearchProps = {
+  placeholder?: string;
+} & React.FormHTMLAttributes<HTMLFormElement>;
