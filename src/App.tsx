@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Button } from "./components";
+import { Input } from "./components";
 
 const App: React.FC = () => {
   return (
     <div className={`app `}>
-      <Button>Hello</Button>
+      <Input type="password" label="test" id="number" placeholder="Hello" />
     </div>
   );
 };

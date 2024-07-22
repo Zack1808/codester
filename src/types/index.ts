@@ -1,3 +1,3 @@
-import { ButtonProps } from "./components";
+import { ButtonProps, InputProps } from "./components";
 
-export type { ButtonProps };
+export type { ButtonProps, InputProps };

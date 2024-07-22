@@ -7,3 +7,7 @@ export type ButtonProps = {
   to?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement> &
   Partial<LinkProps>;
+
+export type InputProps = {
+  label?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;
