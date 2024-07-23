@@ -15,3 +15,9 @@ export type InputProps = {
 export type SearchProps = {
   placeholder?: string;
 } & React.FormHTMLAttributes<HTMLFormElement>;
+
+export type SelectProps = {
+  label?: string;
+  options?: { label: string; value: string }[];
+  initialValue?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;

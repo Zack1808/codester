@@ -19,6 +19,7 @@
   position: absolute;
   inset: 0;
   border: 1px solid var(--primary-color);
+  transition: filter 0.1s;
 }
 
 .input-container:focus-within::before {
