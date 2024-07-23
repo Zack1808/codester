@@ -1,17 +1,7 @@
-import React, { useRef, useEffect } from "react";
-
-import { Select } from "./components";
-
-const options = [{ label: "Hello", value: "there" }];
+import React from "react";
 
 const App: React.FC = () => {
-  const ref = useRef<HTMLInputElement>(null);
-
-  return (
-    <div className={`app `}>
-      <Select options={options} ref={ref} />
-    </div>
-  );
+  return <div className={`app `}></div>;
 };
 
 export default App;
