@@ -7,105 +7,114 @@ import { SelectProps, DropDownPositionTypes } from "../types/";
 
 import "../css/components/Select.css";
 
-const Select: React.FC<SelectProps> = ({
-  label,
-  options,
-  initialValue,
-  ...rest
-}) => {
-  const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
-  const [dropdownPosition, setDropdownPosition] =
-    useState<DropDownPositionTypes>({});
+const Select = React.forwardRef<HTMLInputElement, SelectProps>(
+  ({ label, options, initialValue, ...rest }, ref) => {
+    const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
+    const [dropdownPosition, setDropdownPosition] =
+      useState<DropDownPositionTypes>({});
 
-  const valueRef = useRef<HTMLInputElement>(null);
-  const labelRef = useRef<HTMLInputElement>(null);
-  const selectContainerRef = useRef<HTMLDivElement>(null);
-  const dropdownContainerRef = useRef<HTMLDivElement>(null);
+    const labelRef = useRef<HTMLInputElement>(null);
+    const selectContainerRef = useRef<HTMLDivElement>(null);
+    const dropdownContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = () => {
-    setDropdownIsOpen((prevState) => !prevState);
-  };
+    const handleClick = () => {
+      setDropdownIsOpen((prevState) => !prevState);
+    };
 
-  const handleOptionSelect = (index: number) => {
-    if (!valueRef.current || !labelRef.current || !options) return;
+    const handleOptionSelect = (index: number) => {
+      if (!labelRef.current || !options || !selectContainerRef.current) return;
 
-    valueRef.current.value = options[index].value;
-    labelRef.current.value = options[index].label;
-  };
+      const valueRef = selectContainerRef.current.querySelector(
+        "input"
+      ) as HTMLInputElement;
 
-  // Display the initialValue
-  useEffect(() => {
-    if (!valueRef.current || !labelRef.current || !initialValue || !options)
-      return;
+      valueRef.value = options[index].value;
+      labelRef.current.value = options[index].label;
+    };
 
-    const index = options.findIndex((item) => item.value === initialValue);
+    // Display the initialValue
+    useEffect(() => {
+      if (
+        !labelRef.current ||
+        !initialValue ||
+        !options ||
+        !selectContainerRef.current
+      )
+        return;
 
-    valueRef.current.value = options[index].value;
-    labelRef.current.value = options[index].label;
-  }, []);
+      const index = options.findIndex((item) => item.value === initialValue);
 
-  // Determine rendering position of the dropdown
-  useEffect(() => {
-    if (!selectContainerRef.current || !dropdownContainerRef.current) return;
+      const valueRef = selectContainerRef.current.querySelector(
+        "input"
+      ) as HTMLInputElement;
 
-    const selectRect = selectContainerRef.current.getBoundingClientRect();
-    const dropdownHeight = dropdownContainerRef.current.offsetHeight;
-    const spaceAbove = selectRect.top;
-    const spaceBelow = window.innerHeight - selectRect.bottom;
+      valueRef.value = options[index].value;
+      labelRef.current.value = options[index].label;
+    }, []);
 
-    if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
-      setDropdownPosition({ bottom: "55%" });
-    } else {
-      setDropdownPosition({ top: "100%" });
-    }
-  }, [dropdownIsOpen]);
+    // Determine rendering position of the dropdown
+    useEffect(() => {
+      if (!selectContainerRef.current || !dropdownContainerRef.current) return;
 
-  return (
-    <div className="select-component" aria-label="select">
-      {label && <label htmlFor={rest.id}>{label}</label>}
+      const selectRect = selectContainerRef.current.getBoundingClientRect();
+      const dropdownHeight = dropdownContainerRef.current.offsetHeight;
+      const spaceAbove = selectRect.top;
+      const spaceBelow = window.innerHeight - selectRect.bottom;
 
-      <div
-        className="select-container"
-        ref={selectContainerRef}
-        tabIndex={1}
-        aria-hidden
-        onClick={handleClick}
-        onBlur={() => setDropdownIsOpen(false)}
-      >
-        <input type="hidden" ref={valueRef} aria-hidden {...rest} />
-        <input
-          type="text"
-          tabIndex={-1}
-          ref={labelRef}
-          readOnly
-          aria-hidden
-          placeholder="Select..."
-        />
-        <Button tabIndex={-1}>
-          {dropdownIsOpen ? <FaCaretUp /> : <FaCaretDown />}
-        </Button>
-      </div>
+      if (spaceBelow < dropdownHeight && spaceAbove > dropdownHeight) {
+        setDropdownPosition({ bottom: "55%" });
+      } else {
+        setDropdownPosition({ top: "100%" });
+      }
+    }, [dropdownIsOpen]);
 
-      {dropdownIsOpen && (
+    return (
+      <div className="select-component" aria-label="select">
+        {label && <label htmlFor={rest.id}>{label}</label>}
+
         <div
-          style={dropdownPosition}
-          className="select-dropdown"
-          ref={dropdownContainerRef}
+          className="select-container"
+          ref={selectContainerRef}
+          tabIndex={1}
+          aria-hidden
+          onClick={handleClick}
+          onBlur={() => setDropdownIsOpen(false)}
         >
-          <ul>
-            {options &&
-              options.map((option, index) => (
-                <li key={option.value}>
-                  <Button onMouseDown={() => handleOptionSelect(index)}>
-                    {option.label}
-                  </Button>
-                </li>
-              ))}
-          </ul>
+          <input type="hidden" ref={ref} aria-hidden name="value" {...rest} />
+          <input
+            type="text"
+            tabIndex={-1}
+            ref={labelRef}
+            readOnly
+            aria-hidden
+            placeholder="Select..."
+          />
+          <Button tabIndex={-1}>
+            {dropdownIsOpen ? <FaCaretUp /> : <FaCaretDown />}
+          </Button>
         </div>
-      )}
-    </div>
-  );
-};
+
+        {dropdownIsOpen && (
+          <div
+            style={dropdownPosition}
+            className="select-dropdown"
+            ref={dropdownContainerRef}
+          >
+            <ul>
+              {options &&
+                options.map((option, index) => (
+                  <li key={option.value}>
+                    <Button onMouseDown={() => handleOptionSelect(index)}>
+                      {option.label}
+                    </Button>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
+  }
+);
 
 export default Select;

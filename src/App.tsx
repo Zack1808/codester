@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-import { Textarea } from "./components";
+import { Select } from "./components";
+
+const options = [{ label: "Hello", value: "there" }];
 
 const App: React.FC = () => {
+  const ref = useRef<HTMLInputElement>(null);
+
   return (
     <div className={`app `}>
-      <Textarea label="Hello" placeholder="Hello" />
+      <Select options={options} ref={ref} />
     </div>
   );
 };

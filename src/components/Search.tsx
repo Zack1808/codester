@@ -7,19 +7,18 @@ import { SearchProps } from "../types";
 
 import "../css/components/Search.css";
 
-const Search: React.FC<SearchProps> = React.forwardRef<
-  HTMLFormElement,
-  SearchProps
->(({ placeholder, ...rest }, ref) => {
-  return (
-    <form {...rest} className={`search-form ${rest.className}`} ref={ref}>
-      <Input type="text" placeholder={placeholder} name="searchInput" />
+const Search = React.forwardRef<HTMLFormElement, SearchProps>(
+  ({ placeholder, ...rest }, ref) => {
+    return (
+      <form {...rest} className={`search-form ${rest.className}`} ref={ref}>
+        <Input type="text" placeholder={placeholder} name="searchInput" />
 
-      <Button type="submit" primary>
-        <FaMagnifyingGlass />
-      </Button>
-    </form>
-  );
-});
+        <Button type="submit" primary>
+          <FaMagnifyingGlass />
+        </Button>
+      </form>
+    );
+  }
+);
 
 export default Search;
