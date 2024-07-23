@@ -21,3 +21,8 @@ export type SelectProps = {
   options?: { label: string; value: string }[];
   initialValue?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
+
+export type TextareaProps = {
+  label?: string;
+  resize?: "none" | "both" | "horizontal" | "vertical";
+} & React.TextareaHTMLAttributes<HTMLTextAreaElement>;

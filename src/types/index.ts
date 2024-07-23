@@ -3,6 +3,7 @@ import {
   InputProps,
   SearchProps,
   SelectProps,
+  TextareaProps,
 } from "./components";
 
 import { DropDownPositionTypes } from "./states";
@@ -13,4 +14,5 @@ export type {
   SearchProps,
   SelectProps,
   DropDownPositionTypes,
+  TextareaProps,
 };
