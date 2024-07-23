@@ -26,3 +26,7 @@ export type TextareaProps = {
   label?: string;
   resize?: "none" | "both" | "horizontal" | "vertical";
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+
+export type SliderProps = {
+  label?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>;

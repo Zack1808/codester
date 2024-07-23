@@ -1,0 +1,40 @@
+.slider-component {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  color: var(--primary-text);
+  justify-content: space-between;
+}
+
+.slider-container {
+  position: relative;
+}
+
+.slider-container input {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.slider {
+  border: 2px solid var(--primary-text);
+  width: 3rem;
+  aspect-ratio: 16 / 10;
+  border-radius: 50px;
+  justify-content: flex-start;
+  display: flex;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.handle {
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--primary-text);
+  border-radius: 50%;
+}
+
+.slider-container input:checked ~ .slider {
+  background-color: var(--primary-color);
+  justify-content: flex-end;
+}
