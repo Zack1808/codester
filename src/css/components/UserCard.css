@@ -1,0 +1,28 @@
+.user-card-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--secondary-bg);
+  padding: 0.563rem 1rem;
+  flex: 1;
+  text-decoration: none;
+}
+
+.user-card-container > a {
+  width: 25%;
+}
+
+.user-card-container img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.user-card-container span a,
+.user-card-container span {
+  text-decoration: none;
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -51,3 +51,13 @@ export type NoteCardProps = {
     comments: string[];
   };
 };
+
+export type UserCardProps = {
+  userSnippet: {
+    uid: string;
+    imgUrl: string;
+    userName: string;
+    notesAmount: number;
+    followedBy: string[];
+  };
+};
