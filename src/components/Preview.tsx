@@ -5,6 +5,7 @@ import { PreviewProps } from "../types";
 import "../css/components/Preview.css";
 
 const Preview: React.FC<PreviewProps> = ({ html, css, js, zoom = 100 }) => {
+  console.log(zoom);
   const defaultHTML = `
   <html>
     <head>

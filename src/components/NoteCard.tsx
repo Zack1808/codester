@@ -14,10 +14,10 @@ const NoteCard: React.FC<NoteCardProps> = ({ info }) => {
 
   return (
     <div className="note-card-container">
+      {" "}
       <div className="note-card-show-preview">
-        <Preview html={html} css={css} js={js} />
+        <Preview html={html} css={css} js={js} zoom={50} />
       </div>
-
       <Link to={`/editor/${id}`} className="note-card-body">
         <img src={userImage} alt="Profile picture" />
         <span>
@@ -25,7 +25,6 @@ const NoteCard: React.FC<NoteCardProps> = ({ info }) => {
           <h4>{userName}</h4>
         </span>
       </Link>
-
       <div className="note-card-footer">
         <span>
           <FaRegHeart style={{ fontSize: "1.5rem" }} />
