@@ -30,3 +30,9 @@ export type TextareaProps = {
 export type SliderProps = {
   label?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
+
+export type PreviewProps = {
+  html: string;
+  css: string;
+  js: string;
+};

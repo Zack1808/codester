@@ -1,11 +1,21 @@
 import React from "react";
 
-import { Slider } from "./components";
+import { Preview } from "./components";
 
 const App: React.FC = () => {
   return (
     <div className={`app `}>
-      <Slider label="Hello" />
+      <Preview
+        html={`<h1>Hello there</h1>`}
+        css={`
+          h1 {
+            color: grey;
+          }
+        `}
+        js={`const title = document.querySelector("h1");
+          title.innerHTML = "Hi there"
+          `}
+      />
     </div>
   );
 };
