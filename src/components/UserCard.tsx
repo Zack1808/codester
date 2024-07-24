@@ -19,16 +19,15 @@ const UserCard: React.FC<UserCardProps> = ({ userSnippet }) => {
       <span>
         <Link to={`/user/${uid}`}>
           <h3>{userName}</h3>
-          <p>{notesAmount} notes</p>
+          <small>{notesAmount} notes</small>
         </Link>
-
-        <Button
-          primary={!followedBy.includes("fdafadsfadf")}
-          secondary={followedBy.includes("fdafadsfadf")}
-        >
-          {followedBy.includes("fdafadsfadf") ? "Unfollow" : "Follow"}
-        </Button>
       </span>
+      <Button
+        primary={!followedBy.includes("fdafadsfadf")}
+        secondary={followedBy.includes("fdafadsfadf")}
+      >
+        {followedBy.includes("fdafadsfadf") ? "Unfollow" : "Follow"}
+      </Button>
     </div>
   );
 };

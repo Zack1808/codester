@@ -1,21 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { UserCard } from "./components";
-
-const user = {
-  uid: "fakldsfnmačnbiff",
-  imgUrl: "https://picsum.photos/200",
-  userName: "User",
-  notesAmount: 50,
-  followedBy: [],
-};
+import { CodeEditor } from "./components";
 
 const App: React.FC = () => {
+  const [code, setCode] = useState<string>("");
+
   return (
     <BrowserRouter>
       <div className={`app `}>
-        <UserCard userSnippet={user} />
+        <CodeEditor
+          code={code}
+          onChange={setCode}
+          displayName="HTML"
+          language="xml"
+        />
       </div>
     </BrowserRouter>
   );

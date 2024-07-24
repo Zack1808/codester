@@ -8,6 +8,7 @@ import {
   PreviewProps,
   NoteCardProps,
   UserCardProps,
+  CodeEditorProps,
 } from "./components";
 
 import { DropDownPositionTypes } from "./states";
@@ -23,4 +24,5 @@ export type {
   PreviewProps,
   NoteCardProps,
   UserCardProps,
+  CodeEditorProps,
 };

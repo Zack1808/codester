@@ -61,3 +61,10 @@ export type UserCardProps = {
     followedBy: string[];
   };
 };
+
+export type CodeEditorProps = {
+  code: string;
+  onChange: React.Dispatch<React.SetStateAction<string>>;
+  displayName: string;
+  language: string;
+};

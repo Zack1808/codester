@@ -7,3 +7,4 @@ export { default as Slider } from "./Slider";
 export { default as Preview } from "./Preview";
 export { default as NoteCard } from "./NoteCard";
 export { default as UserCard } from "./UserCard";
+export { default as CodeEditor } from "./CodeEditor";
