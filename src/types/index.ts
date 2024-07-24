@@ -6,6 +6,7 @@ import {
   TextareaProps,
   SliderProps,
   PreviewProps,
+  NoteCardProps,
 } from "./components";
 
 import { DropDownPositionTypes } from "./states";
@@ -19,4 +20,5 @@ export type {
   TextareaProps,
   SliderProps,
   PreviewProps,
+  NoteCardProps,
 };

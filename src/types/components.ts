@@ -35,4 +35,19 @@ export type PreviewProps = {
   html: string;
   css: string;
   js: string;
+  zoom?: number;
+};
+
+export type NoteCardProps = {
+  info: {
+    id: string;
+    html: string;
+    css: string;
+    js: string;
+    userName: string;
+    title: string;
+    userImage: string;
+    likedBy: string[];
+    comments: string[];
+  };
 };
