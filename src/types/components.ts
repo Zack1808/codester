@@ -67,4 +67,5 @@ export type CodeEditorProps = {
   onChange: React.Dispatch<React.SetStateAction<string>>;
   displayName: string;
   language: string;
+  lineWrap?: boolean;
 };

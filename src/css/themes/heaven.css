@@ -1,0 +1,87 @@
+.cm-s-heaven.CodeMirror {
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+}
+.cm-s-heaven div.CodeMirror-selected {
+  background: #e0e0e0;
+}
+.cm-s-heaven .CodeMirror-line::selection,
+.cm-s-heaven .CodeMirror-line > span::selection,
+.cm-s-heaven .CodeMirror-line > span > span::selection {
+  background: #e0e0e0;
+}
+.cm-s-heaven .CodeMirror-line::-moz-selection,
+.cm-s-heaven .CodeMirror-line > span::-moz-selection,
+.cm-s-heaven .CodeMirror-line > span > span::-moz-selection {
+  background: #e0e0e0;
+}
+.cm-s-heaven .CodeMirror-gutters {
+  background: var(--secondary-bg);
+  border-right: 0px;
+}
+.cm-s-heaven .CodeMirror-guttermarker {
+  color: #ac4142;
+}
+.cm-s-heaven .CodeMirror-guttermarker-subtle {
+  color: #b0b0b0;
+}
+.cm-s-heaven .CodeMirror-linenumber {
+  color: var(--primary-text);
+  opacity: 0.5;
+  text-align: center;
+}
+.cm-s-heaven .CodeMirror-cursor {
+  border-left: 1px solid #505050;
+}
+
+.cm-s-heaven span.cm-comment {
+  color: #8f5536;
+}
+.cm-s-heaven span.cm-atom {
+  color: #aa759f;
+}
+.cm-s-heaven span.cm-number {
+  color: #aa759f;
+}
+
+.cm-s-heaven span.cm-property,
+.cm-s-heaven span.cm-attribute {
+  color: #90a959;
+}
+.cm-s-heaven span.cm-keyword {
+  color: #ac4142;
+}
+.cm-s-heaven span.cm-string {
+  color: #f4bf75;
+}
+
+.cm-s-heaven span.cm-variable {
+  color: #90a959;
+}
+.cm-s-heaven span.cm-variable-2 {
+  color: #6a9fb5;
+}
+.cm-s-heaven span.cm-def {
+  color: #d28445;
+}
+.cm-s-heaven span.cm-bracket {
+  color: #202020;
+}
+.cm-s-heaven span.cm-tag {
+  color: #ac4142;
+}
+.cm-s-heaven span.cm-link {
+  color: #aa759f;
+}
+.cm-s-heaven span.cm-error {
+  background: #ac4142;
+  color: #505050;
+}
+
+.cm-s-heaven .CodeMirror-activeline-background {
+  background: #dddcdc;
+}
+.cm-s-heaven .CodeMirror-matchingbracket {
+  color: #f5f5f5 !important;
+  background-color: #6a9fb5 !important;
+}

@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Editor, EditorChange } from "codemirror";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/css/css";
@@ -10,12 +9,18 @@ import "codemirror/mode/css/css";
 import { CodeEditorProps } from "../types";
 
 import "../css/components/CodeEditor.css";
+import "../css/themes/moody.css";
+import "../css/themes/sith.css";
+import "../css/themes/militant.css";
+import "../css/themes/heaven.css";
+import "../css/themes/barbie.css";
 
 const CodeEditor: React.FC<CodeEditorProps> = ({
   code,
   onChange,
   displayName,
   language,
+  lineWrap,
 }) => {
   const handleChange = (editor: Editor, data: EditorChange, value: string) => {
     onChange(value);
@@ -30,8 +35,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         className="code-editor"
         options={{
           mode: language,
-          theme: "material",
-          lineWrapping: true,
+          theme: "barbie",
+          lineWrapping: lineWrap || true,
           lineNumbers: true,
           direction: "ltr",
         }}
