@@ -71,3 +71,5 @@ export type CodeEditorProps = {
 };
 
 export type HorizontalResizeProps = React.HTMLAttributes<HTMLDivElement>;
+
+export type VerticalResizeProps = React.HTMLAttributes<HTMLDivElement>;

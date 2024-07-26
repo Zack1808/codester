@@ -25,22 +25,22 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
         const newWidths = [...startWidths];
 
         if (childrenArray.length > 1) {
-          // Calculate new widths for multiple children
           newWidths[index] += deltaPercent;
           newWidths[index + 1] -= deltaPercent;
 
-          // Convert the widths to pixel values for comparison
           const newWidthPixels = newWidths.map(
             (widthPercent) => (widthPercent / 100) * totalWidth
           );
 
-          // Ensure that the new widths are not smaller than the minimum width
           if (
             newWidthPixels[index] >= MIN_WIDTH &&
             newWidthPixels[index + 1] >= MIN_WIDTH
           ) {
             setWidth(newWidths);
           }
+        } else {
+          newWidths[index] += deltaPercent;
+          setWidth(newWidths);
         }
       };
       const handleMouseUp = () => {
@@ -58,7 +58,7 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
       style={{ gridTemplateColumns: width.map((w) => `${w}%`).join(" ") }}
     >
       {childrenArray.map((child, index) => (
-        <div className="child" key={index}>
+        <div className="horizontal-child" key={index}>
           <div className="horizontal-resize-content">{child}</div>
           {(index < childrenArray.length - 1 || childrenArray.length === 1) && (
             <div
