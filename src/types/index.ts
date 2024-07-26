@@ -9,6 +9,7 @@ import {
   NoteCardProps,
   UserCardProps,
   CodeEditorProps,
+  HorizontalResizeProps,
 } from "./components";
 
 import { DropDownPositionTypes } from "./states";
@@ -25,4 +26,5 @@ export type {
   NoteCardProps,
   UserCardProps,
   CodeEditorProps,
+  HorizontalResizeProps,
 };

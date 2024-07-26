@@ -1,34 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { CodeEditor } from "./components";
+import HorizontalResize from "./components/HorizontalResize";
 
 const App: React.FC = () => {
-  const [html, sethtml] = useState<string>("");
-  const [css, setcss] = useState<string>("");
-  const [js, setjs] = useState<string>("");
-
   return (
     <BrowserRouter>
-      <div className={`app barbie `}>
-        <CodeEditor
-          code={html}
-          onChange={sethtml}
-          displayName="HTML"
-          language="xml"
-        />
-        <CodeEditor
-          code={css}
-          onChange={setcss}
-          displayName="CSS"
-          language="css"
-        />
-        <CodeEditor
-          code={js}
-          onChange={setjs}
-          displayName="JS"
-          language="javascript"
-        />
+      <div className={`app `}>
+        <HorizontalResize>
+          <div
+            style={{ backgroundColor: "red", height: "100%", width: "100%" }}
+          ></div>
+          <div
+            style={{ backgroundColor: "green", height: "100%", width: "100%" }}
+          ></div>
+          <div
+            style={{ backgroundColor: "blue", height: "100%", width: "100%" }}
+          ></div>
+        </HorizontalResize>
       </div>
     </BrowserRouter>
   );

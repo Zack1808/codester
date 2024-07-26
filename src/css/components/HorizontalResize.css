@@ -1,0 +1,25 @@
+.horizontal-resize-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  height: 50dvh;
+  width: 100%;
+}
+
+.child {
+  display: flex;
+  width: 100%;
+}
+
+.horizontal-resize-content {
+  flex: 1 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.horizontal-resize-handle {
+  height: 100%;
+  background: white;
+  width: 20px;
+  cursor: col-resize;
+  z-index: 2;
+}

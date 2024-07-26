@@ -69,3 +69,5 @@ export type CodeEditorProps = {
   language: string;
   lineWrap?: boolean;
 };
+
+export type HorizontalResizeProps = React.HTMLAttributes<HTMLDivElement>;
