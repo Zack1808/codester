@@ -32,8 +32,17 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
             (heightPercent) => (heightPercent / 100) * totalHeight
           );
 
-          if (newHeightPixels[index] >= MIN_WIDTH) {
-            setHeight(newHeights);
+          if (index + 1 !== childrenArray.length - 1) {
+            if (
+              newHeightPixels[index] >= MIN_WIDTH &&
+              newHeightPixels[index + 1] >= MIN_WIDTH
+            ) {
+              setHeight(newHeights);
+            }
+          } else {
+            if (newHeightPixels[index] >= MIN_WIDTH) {
+              setHeight(newHeights);
+            }
           }
         } else {
           newHeights[index] += deltaPercent;

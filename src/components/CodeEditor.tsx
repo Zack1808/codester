@@ -35,7 +35,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
         className="code-editor"
         options={{
           mode: language,
-          theme: "barbie",
+          theme: "moody",
           lineWrapping: lineWrap || true,
           lineNumbers: true,
           direction: "ltr",

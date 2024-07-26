@@ -1,41 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
+
+import { CodeEditor } from "./components";
 
 import HorizontalResize from "./components/HorizontalResize";
 import VerticalResize from "./components/VerticalResize";
 
 const App: React.FC = () => {
+  const [code, setCode] = useState<string>("");
+
   return (
     <BrowserRouter>
       <div className={`app `}>
         <div style={{ width: "100%", height: "100dvh" }}>
           <VerticalResize>
             <HorizontalResize>
-              <div
-                style={{
-                  backgroundColor: "red",
-                  height: "100%",
-                  width: "100%",
-                }}
-              ></div>
-              <div
-                style={{
-                  backgroundColor: "green",
-                  height: "100%",
-                  width: "100%",
-                }}
-              ></div>
-              <div
-                style={{
-                  backgroundColor: "blue",
-                  height: "100%",
-                  width: "100%",
-                }}
-              ></div>
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
             </HorizontalResize>
             <div
               style={{
-                backgroundColor: "yellow",
+                backgroundColor: "white",
                 height: "100%",
                 width: "100%",
               }}

@@ -32,11 +32,17 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
             (widthPercent) => (widthPercent / 100) * totalWidth
           );
 
-          if (
-            newWidthPixels[index] >= MIN_WIDTH &&
-            newWidthPixels[index + 1] >= MIN_WIDTH
-          ) {
-            setWidth(newWidths);
+          if (index + 1 !== childrenArray.length - 1) {
+            if (
+              newWidthPixels[index] >= MIN_WIDTH &&
+              newWidthPixels[index + 1] >= MIN_WIDTH
+            ) {
+              setWidth(newWidths);
+            }
+          } else {
+            if (newWidthPixels[index] >= MIN_WIDTH) {
+              setWidth(newWidths);
+            }
           }
         } else {
           newWidths[index] += deltaPercent;
