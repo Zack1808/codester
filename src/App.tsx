@@ -13,7 +13,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className={`app `}>
         <div style={{ width: "100%", height: "100dvh" }}>
-          <VerticalResize>
+          {/* <VerticalResize>
             <HorizontalResize>
               <CodeEditor
                 code={code}
@@ -41,7 +41,36 @@ const App: React.FC = () => {
                 width: "100%",
               }}
             ></div>
-          </VerticalResize>
+          </VerticalResize> */}
+          <HorizontalResize max={300} min={300}>
+            <VerticalResize>
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
+              <CodeEditor
+                code={code}
+                onChange={setCode}
+                language="javascript"
+                displayName="JavaScript"
+              />
+            </VerticalResize>
+            <div
+              style={{
+                backgroundColor: "white",
+                height: "100%",
+                width: "100%",
+              }}
+            ></div>
+          </HorizontalResize>
         </div>
       </div>
     </BrowserRouter>

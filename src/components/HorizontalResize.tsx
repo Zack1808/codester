@@ -4,9 +4,11 @@ import { HorizontalResizeProps } from "../types";
 
 import "../css/components/HorizontalResize.css";
 
-const MIN_WIDTH = 20;
-
-const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
+const HorizontalResize: React.FC<HorizontalResizeProps> = ({
+  children,
+  min = 0,
+  max = 20,
+}) => {
   const childrenArray = React.Children.toArray(children);
   const [width, setWidth] = useState<number[]>(
     new Array(childrenArray.length).fill(100 / childrenArray.length)
@@ -44,13 +46,18 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
 
           if (index + 1 !== childrenArray.length - 1) {
             if (
-              newWidthPixels[index] >= MIN_WIDTH &&
-              newWidthPixels[index + 1] >= MIN_WIDTH
+              newWidthPixels[index] >= max &&
+              newWidthPixels[index + 1] >= max
             ) {
+              console.log(newWidths[index], newWidths[index + 1]);
               setWidth(newWidths);
             }
           } else {
-            if (newWidthPixels[index] >= MIN_WIDTH) {
+            if (
+              newWidthPixels[index] >= max &&
+              newWidthPixels[index + 1] >= min
+            ) {
+              console.log(newWidths[index], newWidths[index + 1]);
               setWidth(newWidths);
             }
           }

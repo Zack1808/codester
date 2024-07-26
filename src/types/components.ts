@@ -70,6 +70,12 @@ export type CodeEditorProps = {
   lineWrap?: boolean;
 };
 
-export type HorizontalResizeProps = React.HTMLAttributes<HTMLDivElement>;
+export type HorizontalResizeProps = {
+  min?: number;
+  max?: number;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export type VerticalResizeProps = React.HTMLAttributes<HTMLDivElement>;
+export type VerticalResizeProps = {
+  min?: number;
+  max?: number;
+} & React.HTMLAttributes<HTMLDivElement>;

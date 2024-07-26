@@ -4,9 +4,11 @@ import { HorizontalResizeProps } from "../types";
 
 import "../css/components/VerticalResize.css";
 
-const MIN_WIDTH = 200;
-
-const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
+const VerticalResize: React.FC<HorizontalResizeProps> = ({
+  children,
+  max = 20,
+  min = 0,
+}) => {
   const childrenArray = React.Children.toArray(children);
   const [height, setHeight] = useState<number[]>(
     new Array(childrenArray.length).fill(100 / childrenArray.length)
@@ -44,13 +46,16 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
 
           if (index + 1 !== childrenArray.length - 1) {
             if (
-              newHeightPixels[index] >= MIN_WIDTH &&
-              newHeightPixels[index + 1] >= MIN_WIDTH
+              newHeightPixels[index] >= max &&
+              newHeightPixels[index + 1] >= max
             ) {
               setHeight(newHeights);
             }
           } else {
-            if (newHeightPixels[index] >= MIN_WIDTH) {
+            if (
+              newHeightPixels[index] >= max &&
+              newHeightPixels[index + 1] >= min
+            ) {
               setHeight(newHeights);
             }
           }
@@ -66,7 +71,7 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
             [index].classList.remove("vertical-drag");
           contentRef.current
             .querySelectorAll(".vertical-resize-content")
-            [index + 1].classList.add("vertical-drag");
+            [index + 1].classList.remove("vertical-drag");
         }
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
