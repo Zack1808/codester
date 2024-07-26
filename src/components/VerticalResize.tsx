@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { HorizontalResizeProps } from "../types";
 
@@ -12,8 +12,18 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
     new Array(childrenArray.length).fill(100 / childrenArray.length)
   );
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
   const handleMouseDown =
     (index: number) => (e: React.MouseEvent<HTMLDivElement>) => {
+      if (contentRef.current) {
+        contentRef.current
+          .querySelectorAll(".vertical-resize-content")
+          [index].classList.add("vertical-drag");
+        contentRef.current
+          .querySelectorAll(".vertical-resize-content")
+          [index + 1].classList.add("vertical-drag");
+      }
       const startY = e.clientY;
       const startHeights = [...height];
       const totalHeight = (e.target as HTMLElement).parentNode!.parentElement!
@@ -50,6 +60,14 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
         }
       };
       const handleMouseUp = () => {
+        if (contentRef.current) {
+          contentRef.current
+            .querySelectorAll(".vertical-resize-content")
+            [index].classList.remove("vertical-drag");
+          contentRef.current
+            .querySelectorAll(".vertical-resize-content")
+            [index + 1].classList.add("vertical-drag");
+        }
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
       };
@@ -61,6 +79,7 @@ const VerticalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
   return (
     <div
       className="vertical-resize-container"
+      ref={contentRef}
       style={{ gridTemplateRows: height.map((h) => `${h}%`).join(" ") }}
     >
       {childrenArray.map((child, index) => (

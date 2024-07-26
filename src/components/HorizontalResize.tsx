@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { HorizontalResizeProps } from "../types";
 
@@ -12,8 +12,18 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
     new Array(childrenArray.length).fill(100 / childrenArray.length)
   );
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
   const handleMouseDown =
     (index: number) => (e: React.MouseEvent<HTMLDivElement>) => {
+      if (contentRef.current) {
+        contentRef.current
+          .querySelectorAll(".horizontal-resize-content")
+          [index].classList.add("horizontal-drag");
+        contentRef.current
+          .querySelectorAll(".horizontal-resize-content")
+          [index + 1].classList.add("horizontal-drag");
+      }
       const startX = e.clientX;
       const startWidths = [...width];
       const totalWidth = (e.target as HTMLElement).parentNode!.parentElement!
@@ -50,6 +60,14 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
         }
       };
       const handleMouseUp = () => {
+        if (contentRef.current) {
+          contentRef.current
+            .querySelectorAll(".horizontal-resize-content")
+            [index].classList.remove("horizontal-drag");
+          contentRef.current
+            .querySelectorAll(".horizontal-resize-content")
+            [index + 1].classList.add("horizontal-drag");
+        }
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
       };
@@ -61,6 +79,7 @@ const HorizontalResize: React.FC<HorizontalResizeProps> = ({ children }) => {
   return (
     <div
       className="horizontal-resize-container"
+      ref={contentRef}
       style={{ gridTemplateColumns: width.map((w) => `${w}%`).join(" ") }}
     >
       {childrenArray.map((child, index) => (
