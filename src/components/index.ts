@@ -8,3 +8,4 @@ export { default as Preview } from "./Preview";
 export { default as NoteCard } from "./NoteCard";
 export { default as UserCard } from "./UserCard";
 export { default as CodeEditor } from "./CodeEditor";
+export { default as ResizeBox } from "./ResizeBox";

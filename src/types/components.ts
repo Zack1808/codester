@@ -79,3 +79,7 @@ export type VerticalResizeProps = {
   min?: number;
   max?: number;
 } & React.HTMLAttributes<HTMLDivElement>;
+
+export type ResizeBoxProps = {
+  direction: string;
+} & (HorizontalResizeProps | VerticalResizeProps);

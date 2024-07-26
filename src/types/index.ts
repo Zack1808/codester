@@ -11,6 +11,7 @@ import {
   CodeEditorProps,
   HorizontalResizeProps,
   VerticalResizeProps,
+  ResizeBoxProps,
 } from "./components";
 
 import { DropDownPositionTypes } from "./states";
@@ -29,4 +30,5 @@ export type {
   CodeEditorProps,
   HorizontalResizeProps,
   VerticalResizeProps,
+  ResizeBoxProps,
 };

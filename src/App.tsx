@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { CodeEditor } from "./components";
-
-import HorizontalResize from "./components/HorizontalResize";
-import VerticalResize from "./components/VerticalResize";
+import { CodeEditor, ResizeBox } from "./components";
 
 const App: React.FC = () => {
   const [code, setCode] = useState<string>("");
@@ -13,8 +10,8 @@ const App: React.FC = () => {
     <BrowserRouter>
       <div className={`app `}>
         <div style={{ width: "100%", height: "100dvh" }}>
-          {/* <VerticalResize>
-            <HorizontalResize>
+          <ResizeBox direction="vertical" max={200}>
+            <ResizeBox direction="horizontal">
               <CodeEditor
                 code={code}
                 onChange={setCode}
@@ -33,7 +30,7 @@ const App: React.FC = () => {
                 language="javascript"
                 displayName="JavaScript"
               />
-            </HorizontalResize>
+            </ResizeBox>
             <div
               style={{
                 backgroundColor: "white",
@@ -41,36 +38,7 @@ const App: React.FC = () => {
                 width: "100%",
               }}
             ></div>
-          </VerticalResize> */}
-          <HorizontalResize max={300} min={300}>
-            <VerticalResize>
-              <CodeEditor
-                code={code}
-                onChange={setCode}
-                language="javascript"
-                displayName="JavaScript"
-              />
-              <CodeEditor
-                code={code}
-                onChange={setCode}
-                language="javascript"
-                displayName="JavaScript"
-              />
-              <CodeEditor
-                code={code}
-                onChange={setCode}
-                language="javascript"
-                displayName="JavaScript"
-              />
-            </VerticalResize>
-            <div
-              style={{
-                backgroundColor: "white",
-                height: "100%",
-                width: "100%",
-              }}
-            ></div>
-          </HorizontalResize>
+          </ResizeBox>
         </div>
       </div>
     </BrowserRouter>

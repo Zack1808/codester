@@ -44,5 +44,5 @@
   position: absolute;
   inset: 0;
   border: 0.5px solid var(--primary-bg);
-  filter: brightness(1.8) blur(2px);
+  filter: brightness(2) blur(2px);
 }
