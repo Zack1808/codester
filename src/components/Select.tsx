@@ -10,6 +10,7 @@ import "../css/components/Select.css";
 const Select = React.forwardRef<HTMLInputElement, SelectProps>(
   ({ label, options, initialValue, ...rest }, ref) => {
     const [dropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false);
+    const [highlightedIndex, setHighlightedIndex] = useState<number>(0);
     const [dropdownPosition, setDropdownPosition] =
       useState<DropDownPositionTypes>({});
 
@@ -22,6 +23,17 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>(
     };
 
     const handleOptionSelect = (index: number) => {
+      if (!labelRef.current || !options || !selectContainerRef.current) return;
+
+      const valueRef = selectContainerRef.current.querySelector(
+        "input"
+      ) as HTMLInputElement;
+
+      valueRef.value = options[index].value;
+      labelRef.current.value = options[index].label;
+    };
+
+    const handleSelection = (index: number) => {
       if (!labelRef.current || !options || !selectContainerRef.current) return;
 
       const valueRef = selectContainerRef.current.querySelector(
@@ -51,6 +63,43 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       valueRef.value = options[index].value;
       labelRef.current.value = options[index].label;
     }, []);
+
+    useEffect(() => {
+      const handler = (event: KeyboardEvent) => {
+        if (event.target !== selectContainerRef.current) return;
+        switch (event.code) {
+          case "Enter":
+          case "Space":
+            setDropdownIsOpen((prevState) => !prevState);
+            if (dropdownIsOpen) {
+              event.preventDefault();
+              handleSelection(highlightedIndex);
+            }
+            break;
+          case "ArrowUp":
+          case "ArrowDown": {
+            event.preventDefault();
+            if (!dropdownIsOpen) {
+              setDropdownIsOpen(true);
+              break;
+            }
+            const newValue =
+              highlightedIndex + (event.code === "ArrowDown" ? 1 : -1);
+            if (newValue >= 0 && newValue < options.length)
+              setHighlightedIndex(newValue);
+            break;
+          }
+          case "Escape":
+            setDropdownIsOpen(false);
+            break;
+        }
+      };
+      selectContainerRef.current?.addEventListener("keydown", handler);
+
+      return () => {
+        selectContainerRef.current?.removeEventListener("keydown", handler);
+      };
+    }, [dropdownIsOpen, highlightedIndex, options]);
 
     // Determine rendering position of the dropdown
     useEffect(() => {
@@ -103,7 +152,13 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>(
             <ul>
               {options &&
                 options.map((option, index) => (
-                  <li key={option.value}>
+                  <li
+                    key={option.value}
+                    style={{
+                      filter:
+                        highlightedIndex === index ? "brightness(1.8)" : "none",
+                    }}
+                  >
                     <Button onMouseDown={() => handleOptionSelect(index)}>
                       {option.label}
                     </Button>

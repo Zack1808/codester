@@ -18,7 +18,7 @@ export type SearchProps = {
 
 export type SelectProps = {
   label?: string;
-  options?: { label: string; value: string }[];
+  options: { label: string; value: string }[];
   initialValue?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
