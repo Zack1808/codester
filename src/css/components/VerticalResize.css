@@ -1,0 +1,48 @@
+.vertical-resize-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+  height: 100%;
+  width: 100%;
+}
+
+.vertical-child {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.vertical-resize-content {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.vertical-resize-content.vertical-drag {
+  position: relative;
+}
+
+.vertical-resize-content.vertical-drag::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: -100%;
+  z-index: 10;
+}
+
+.vertical-resize-handle {
+  width: 100%;
+  height: 20px;
+  cursor: row-resize;
+  z-index: 10;
+  position: relative;
+}
+
+.vertical-resize-handle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0.5px solid var(--primary-bg);
+  filter: brightness(2) blur(2px);
+}

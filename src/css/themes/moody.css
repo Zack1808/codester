@@ -1,0 +1,98 @@
+.cm-s-moody.CodeMirror {
+  background: var(--secondary-bg);
+  color: var(--primary-text);
+}
+.cm-s-moody div.CodeMirror-selected {
+  background: #353b48;
+  opacity: 0.1;
+}
+.cm-s-moody .CodeMirror-line::selection,
+.cm-s-moody .CodeMirror-line > span::selection,
+.cm-s-moody .CodeMirror-line > span > span::selection {
+  background: #353b48;
+}
+.cm-s-moody .CodeMirror-line::-moz-selection,
+.cm-s-moody .CodeMirror-line > span::-moz-selection,
+.cm-s-moody .CodeMirror-line > span > span::-moz-selection {
+  background: #353b48;
+}
+.cm-s-moody .CodeMirror-gutters {
+  background: var(--secondary);
+  border-right: 1px solid #0c0c0d;
+}
+.cm-s-moody .CodeMirror-guttermarker {
+  color: #555;
+}
+.cm-s-moody .CodeMirror-linenumber {
+  color: var(--primary-text);
+  opacity: 0.5;
+  text-align: center;
+}
+.cm-s-moody .CodeMirror-cursor {
+  border-left: 1px solid var(--primary-text);
+}
+
+.cm-s-moody span.cm-comment {
+  color: #51597d;
+}
+.cm-s-moody span.cm-atom,
+.cm-s-moody span.cm-number {
+  color: #ff9e64;
+}
+.cm-s-moody span.cm-quote,
+.cm-s-moody span.cm-string,
+.cm-s-moody span.cm-string-2 {
+  color: #9ece6a;
+}
+.cm-s-moody span.cm-builtin {
+  color: #fc7b7b;
+}
+.cm-s-moody span.cm-attribute {
+  color: #bb9af7;
+  font-style: italic;
+}
+.cm-s-moody span.cm-keyword {
+  color: #9d7cd8;
+  font-style: italic;
+}
+.cm-s-moody span.cm-error {
+  color: #db4b4b;
+}
+
+.cm-s-moody span.cm-header {
+  color: #f7768e;
+}
+.cm-s-moody span.cm-qualifier {
+  color: #9ece6a;
+}
+
+.cm-s-moody span.cm-property {
+  color: #7aa2f7;
+}
+
+.cm-s-moody span.cm-def {
+  color: #bb9af7;
+}
+
+.cm-s-moody span.cm-tag {
+  color: #f7768e;
+}
+
+.cm-s-moody span.cm-variable-3 {
+  color: var(--primary-text);
+}
+
+.cm-s-moody span.cm-operator {
+  color: #bb9af7;
+}
+.cm-s-moody span.cm-special {
+  color: #bb9af7;
+}
+
+.cm-s-moody .CodeMirror-activeline-background {
+  background: rgba(185, 215, 253, 0.15);
+}
+.cm-s-moody .CodeMirror-matchingbracket {
+  outline: solid 1px rgba(255, 255, 255, 0.25);
+  color: white !important;
+}

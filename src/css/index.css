@@ -48,13 +48,13 @@
   --heaven-text-secondary: #181818;
 
   /* Barbie world */
-  --heaven-primary-bg: #fdf2f9;
-  --heaven-secondary-bg: #f4c2c2;
-  --heaven-footer-bg: #a1135b;
-  --heaven-primary-color: #e0218a;
-  --heaven-secondary-color: #fdf2f9;
-  --heaven-text-primary: #181818;
-  --heaven-text-secondary: #f4f5f5;
+  --barbie-primary-bg: #fdf2f9;
+  --barbie-secondary-bg: #f4c2c2;
+  --barbie-footer-bg: #a1135b;
+  --barbie-primary-color: #e0218a;
+  --barbie-secondary-color: #fdf2f9;
+  --barbie-text-primary: #181818;
+  --barbie-text-secondary: #f4f5f5;
 
   /* Used palette */
   --primary-bg: var(--moody-primary-bg);
@@ -64,6 +64,14 @@
   --secondary-color: var(--moody-secondary-color);
   --primary-text: var(--moody-text-primary);
   --secondary-text: var(--moody-text-secondary);
+
+  /* Font sizes */
+  --text-small: 0.75rem;
+  --text-regular: 1rem;
+  --text-big: 1.25rem;
+  --title-small: 1.75rem;
+  --title-regular: 2.25rem;
+  --title-big: 3rem;
 }
 
 .moody {
@@ -116,9 +124,23 @@
   --secondary-text: var(--barbie-text-secondary);
 }
 
+h1 {
+  font-size: var(--title-big);
+}
+
+h2 {
+  font-size: var(--title-regular);
+}
+
+h3 {
+  font-size: var(--title-small);
+}
+
 .app {
   display: flex;
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--primary-bg);
+  font-size: var(--text-regular);
+  align-items: flex-start;
 }
