@@ -6,7 +6,7 @@ import { ButtonProps } from "../types";
 import "../css/components/Button.css";
 
 const Button: React.FC<ButtonProps> = React.memo(
-  ({ primary, secondary, to, ...rest }) => {
+  ({ primary, secondary, to, className, ...rest }) => {
     if (primary && secondary)
       throw new Error(
         "The button component can only be used as either primary or secondary!"
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = React.memo(
           to={to}
           className={`btn ${primary ? "primary" : ""} ${
             secondary ? "secondary" : ""
-          } ${rest.className}`}
+          } ${className}`}
           {...rest}
         >
           {rest.children}
@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = React.memo(
       <button
         className={`btn ${primary ? "primary" : ""} ${
           secondary ? "secondary" : ""
-        } ${rest.className}`}
+        } ${className}`}
         {...rest}
       >
         {rest.children}

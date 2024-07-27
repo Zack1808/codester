@@ -9,3 +9,4 @@ export { default as NoteCard } from "./NoteCard";
 export { default as UserCard } from "./UserCard";
 export { default as CodeEditor } from "./CodeEditor";
 export { default as ResizeBox } from "./ResizeBox";
+export { default as Navbar } from "./Navbar";
