@@ -144,3 +144,9 @@ h3 {
   font-size: var(--text-regular);
   align-items: flex-start;
 }
+
+@media (width < 500px) {
+  .app {
+    flex-direction: column;
+  }
+}

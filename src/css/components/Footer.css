@@ -1,0 +1,20 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--footer-bg);
+  padding: 2.25rem 1rem;
+  color: var(--primary-text);
+  margin-top: auto;
+  gap: 24px;
+}
+
+.footer-container h2,
+.footer-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
