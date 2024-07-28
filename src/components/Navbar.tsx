@@ -36,6 +36,14 @@ const Navbar: React.FC = () => {
             <Button onClick={handleToggleMenu}>
               <FaXmark style={{ fontSize: "2.25rem" }} />
             </Button>
+            {true && (
+              <Button to="/profile" onClick={handleToggleMenu}>
+                <img
+                  src="https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
+                  alt="Profile picture"
+                />
+              </Button>
+            )}
           </li>
           <li style={{ marginBottom: "3rem" }}>
             <Button to="/note" primary onClick={handleToggleMenu}>

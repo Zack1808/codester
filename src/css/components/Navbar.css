@@ -90,11 +90,23 @@
 
   .navigation li.close-menu {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 1.5rem;
   }
 
   .navigation li.close-menu .btn {
     width: min-content;
+  }
+
+  .navigation li.close-menu .btn:nth-child(2) {
+    padding: 0;
+  }
+
+  .navigation li.close-menu img {
+    width: 40px;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
   }
 }

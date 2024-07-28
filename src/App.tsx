@@ -1,14 +1,17 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer, Header } from "./components";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className={`app `}>
         <Navbar />
-        <Footer />
+        <div className="pages">
+          <Header />
+          <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );
