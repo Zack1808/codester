@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.profile-button {
+  padding: 0;
+}
+
+.profile-button img {
+  width: 50px;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1;
+}

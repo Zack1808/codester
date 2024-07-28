@@ -1,18 +1,17 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import { Select } from "./components";
-
-const options = [
-  { label: "Hello", value: "hello" },
-  { label: "There", value: "there" },
-];
+import { Navbar, Footer, Header } from "./components";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <div className={`app `}>
-        <Select options={options} />
+        <Navbar />
+        <div className="pages">
+          <Header />
+          <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );

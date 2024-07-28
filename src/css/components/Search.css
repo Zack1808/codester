@@ -1,6 +1,7 @@
 .search-form {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .search-form .btn {
