@@ -8,7 +8,10 @@ import { Navbar, Footer, Header } from "./components";
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div className={`app `}>
+      <div
+        className={`app moody
+        `}
+      >
         <Navbar />
         <div className="pages">
           <Header />
