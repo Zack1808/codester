@@ -68,6 +68,7 @@ export type CodeEditorProps = {
   displayName: string;
   language: string;
   lineWrap?: boolean;
+  readOnly?: boolean | "nocursor";
 };
 
 export type HorizontalResizeProps = {
@@ -81,5 +82,9 @@ export type VerticalResizeProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type ResizeBoxProps = {
-  direction: string;
+  direction: "horizontal" | "vertical";
 } & (HorizontalResizeProps | VerticalResizeProps);
+
+export type ContainerProps = {
+  direction: "horizontal" | "vertical";
+} & React.HTMLAttributes<HTMLDivElement>;

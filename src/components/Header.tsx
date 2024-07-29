@@ -7,7 +7,7 @@ import "../css/components/Header.css";
 const Header: React.FC = () => {
   return (
     <div className="header">
-      <Search />
+      <Search placeholder="Search for user, note, tag..." />
       {true && (
         <Button to="/profile" className="profile-button">
           <img

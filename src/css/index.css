@@ -151,9 +151,10 @@ h3 {
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-@media (width < 500px) {
+@media (width < 700px) {
   .app {
     flex-direction: column;
   }

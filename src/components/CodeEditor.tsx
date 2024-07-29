@@ -21,6 +21,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
   displayName,
   language,
   lineWrap,
+  readOnly,
 }) => {
   const handleChange = (editor: Editor, data: EditorChange, value: string) => {
     onChange(value);
@@ -39,6 +40,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
           lineWrapping: lineWrap || true,
           lineNumbers: true,
           direction: "ltr",
+          smartIndent: true,
+          readOnly: readOnly || false,
         }}
       />
     </div>
