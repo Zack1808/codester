@@ -17,7 +17,7 @@
   justify-content: flex-start;
 }
 
-@media (width < 1000px) {
+@media (width < 1150px) {
   .container {
     padding: 1.5rem;
   }
