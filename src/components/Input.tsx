@@ -8,7 +8,7 @@ import { InputProps } from "../types";
 import "../css/components/Input.css";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, type, ...rest }, ref) => {
+  ({ label, type, error, ...rest }, ref) => {
     const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
     const handleClick = () => setPasswordVisible((prevState) => !prevState);
@@ -32,11 +32,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           />
 
           {type === "password" && (
-            <Button onClick={handleClick}>
+            <Button onClick={handleClick} type="button">
               {passwordVisible ? <FaEye /> : <FaEyeSlash />}
             </Button>
           )}
         </div>
+        {error && <span className="input-error-message"></span>}
       </div>
     );
   }

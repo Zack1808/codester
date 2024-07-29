@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Home } from "./pages";
+import { Home, Register } from "./pages";
 
 import { Navbar, Footer, Header } from "./components";
 
@@ -17,6 +17,7 @@ const App: React.FC = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Register />} />
           </Routes>
           <Footer />
         </div>

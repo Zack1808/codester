@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
             <Button onClick={handleToggleMenu}>
               <FaXmark style={{ fontSize: "2.25rem" }} />
             </Button>
-            {true && (
+            {false && (
               <Button to="/profile" onClick={handleToggleMenu}>
                 <img
                   src="https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg"
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
               Create a note
             </Button>
           </li>
-          {false && (
+          {true && (
             <>
               <li>
                 <Button to="/login" onClick={handleToggleMenu}>
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
               </li>
             </>
           )}
-          {true && (
+          {false && (
             <>
               <li>
                 <Button to="/my-notes" onClick={handleToggleMenu}>
@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
               Trending
             </Button>
           </li>
-          {true && (
+          {false && (
             <li>
               <Button onClick={handleToggleMenu}>Log out</Button>
             </li>
